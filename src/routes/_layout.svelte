@@ -1,6 +1,6 @@
 <script>
 	import Nav from '../components/Nav.svelte';
-
+	import 'chota';
 	export let segment;
 </script>
 

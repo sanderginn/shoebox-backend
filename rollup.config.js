@@ -6,10 +6,12 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import postcss from 'rollup-plugin-postcss';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const production = !process.env.ROLLUP_WATCH;
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
@@ -29,6 +31,11 @@ export default {
 				dev,
 				hydratable: true,
 				emitCss: true
+			}),
+			postcss({
+				extract: true,
+				minimize: production,
+				sourceMap: !production
 			}),
 			resolve({
 				browser: true,
@@ -74,6 +81,11 @@ export default {
 				generate: 'ssr',
 				hydratable: true,
 				dev
+			}),
+			postcss({
+				extract: true,
+				minimize: production,
+				sourceMap: !production
 			}),
 			resolve({
 				dedupe: ['svelte']
