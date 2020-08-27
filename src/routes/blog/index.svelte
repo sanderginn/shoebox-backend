@@ -2,6 +2,7 @@
 	import {Card,Button} from 'svelte-chota';
 </script>
 
+
 <svelte:head>
 	<title>Chota</title>
 </svelte:head>

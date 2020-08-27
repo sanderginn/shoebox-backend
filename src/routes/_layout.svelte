@@ -1,6 +1,7 @@
 <script>
 	import Nav from '../components/Nav.svelte';
 	import 'chota';
+	import {Container} from 'svelte-chota';
 	export let segment;
 </script>
 
@@ -17,6 +18,8 @@
 
 <Nav {segment}/>
 
+<Container>
 <main>
 	<slot></slot>
 </main>
+</Container>
