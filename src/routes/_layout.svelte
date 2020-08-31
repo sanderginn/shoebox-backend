@@ -1,7 +1,9 @@
 <script>
+	import 'bootstrap/dist/css/bootstrap.min.css';
+	import '@fortawesome/fontawesome-free/css/all.css';
+
 	import Nav from '../components/Nav.svelte';
-	import 'chota';
-	import {Container} from 'svelte-chota';
+	import Container from 'sveltestrap/src/Container.svelte';
 	export let segment;
 </script>
 
