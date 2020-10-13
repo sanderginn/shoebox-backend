@@ -36,13 +36,14 @@
 			<Label for={field.id} on:click={console.log("CLicked!")}>{field.label}</Label>
 		{:else}
 			<InputGroup>
-				<InputGroupText placeholder="Enter key"/>
-				<InputGroupAddon append></InputGroupAddon>
-				<Button class="fas fa-check"/>
-				<Button class="fas fa-times"/>
+				<Input type="text" bind:value={field.label} placeholder="Enter key"/>
+				<InputGroupAddon addonType="append">
+					<Button class="fas fa-check"/>
+					<Button class="fas fa-times"/>
+				</InputGroupAddon>
 			</InputGroup>
 		{/if}
-		<Input value={field.value}/>
+		<Input type="text" bind:value={field.value}/>
 	</FormGroup>
 {/each}
 <FormGroup>
